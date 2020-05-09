@@ -3,9 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
     <title>Frogger</title>
 </head>
 <body>
+    <div class="game-area">
+        <div class="win-one"></div>
+        <div class="block-one"></div>
+        <div class="win-two"></div>
+        <div class="block-two"></div>
+        <div class="win-three"></div>
+        <div class="block-three"></div>
+        <div class="win-four"></div>
+        <div class="block-four"></div>
+        <div class="win-five"></div>
+        <div class="log-two"></div>
+        <div class="turtle-two"></div>
+        <div class="log-one"></div>
+        <div class="turtle-one"></div>
+        <div class="safe-zone"></div>
+        <div class="white-lane"></div>
+        <div class="red-lane"></div>
+        <div class="race-lane"></div>
+        <div class="purple-lane"></div>
+        <div class="start-zone"></div>
+        <img id="log-one" src="./frogger-images/log.png" alt="">
+        <img id="log-two" src="./frogger-images/log.png" alt="">
+        <div id="turtle-one">
+            <img src="./frogger-images/turtle.png" alt="">
+            <img src="./frogger-images/turtle.png" alt="">
+            <img src="./frogger-images/turtle.png" alt="">
+        </div>
+        <div id="turtle-two">
+            <img src="./frogger-images/turtle.png" alt="">
+            <img src="./frogger-images/turtle.png" alt="">
+            <img src="./frogger-images/turtle.png" alt="">
+        </div>
+        <img id="frogger" src="./frogger-images/frog.png" alt="">
+        <img id="purple-car" src="./frogger-images/purple-car.png" alt="">
+        <img id="race-car" src="./frogger-images/race-car.png" alt="">
+        <img id="red-car" src="./frogger-images/red-car.png" alt="">
+        <img id="white-car" src="./frogger-images/white-car.png" alt="">
+    </div>
+    <div class="interface">
+        <div class="control">
+            <div class="start">Start</div>
+            <div class="reset">Reset</div>
+            <div class="slow">Slow</div>
+            <div class="medium">Medium</div>
+            <div class="fast">Fast</div>
+        </div>
+        <div class="game-pad">
+            <div class="forward-button"></div>
+            <div class="left-button"></div>
+            <div class="back-button"></div>
+            <div class="right-button"></div>
+        </div>
+    </div>
     
+    <script src="index.js"></script>
 </body>
 </html>

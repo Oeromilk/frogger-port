@@ -1,0 +1,292 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: darkgray;
+}
+
+.pressed-down {
+    animation-name: pressedDown;
+    animation-duration: 100ms;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.44,.11,.83,1.52);
+}
+
+.hop-effect {
+    animation-name: hop;
+    animation-duration: 50ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+}
+
+@keyframes hop {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.3, 1.3, 1.3);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes pressedDown {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(0.7, 0.7, 0.7);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.game-area {
+    margin: 0 auto;
+    width: 576px;
+    height: 704px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 64px 64px 64px 64px 64px 64px 64px 64px 64px;
+    grid-template-rows: 64px 64px 64px 64px 64px 64px 64px 64px 64px 64px 64px;
+    grid-template-areas: "winOne blockOne winTwo blockTwo winThree blockThree winFour blockFour winFive"
+                            "logTwo logTwo logTwo logTwo logTwo logTwo logTwo logTwo logTwo"
+                            "turtleTwo turtleTwo turtleTwo turtleTwo turtleTwo turtleTwo turtleTwo turtleTwo turtleTwo"
+                            "logOne logOne logOne logOne logOne logOne logOne logOne logOne"
+                            "turtleOne turtleOne turtleOne turtleOne turtleOne turtleOne turtleOne turtleOne turtleOne"
+                            "safe safe safe safe safe safe safe safe safe"
+                            "whiteL whiteL whiteL whiteL whiteL whiteL whiteL whiteL whiteL"
+                            "redL redL redL redL redL redL redL redL redL"
+                            "race race race race race race race race race"
+                            "purpleL purpleL purpleL purpleL purpleL purpleL purpleL purpleL purpleL"
+                            "start start start start start start start start start";
+}
+
+.interface {
+    margin: 0 auto;
+    width: 576px;
+    display: grid;
+    grid-template-columns: 2;
+    grid-template-rows: 1;
+    grid-template-areas: "control gamepad";
+}
+
+.control {
+    height: 66px;
+    grid-area: control;
+    justify-self: center;
+    align-items: flex-end;
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0.5em;
+    grid-template-areas: "start reset slow medium fast";
+  }
+
+  .control div {
+      text-align: center;
+      border: 1px solid black;
+      background-color: #fff;
+      box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+      border-radius: 0.25em;
+      padding: 0.5em;
+      cursor: pointer;
+  }
+
+  .control div:active {
+    animation-name: pressedDown;
+    animation-duration: 100ms;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.44,.11,.83,1.52);
+  }
+
+.game-pad {
+    height: 64px;
+    width: 96px;
+    grid-area: gamepad;
+    justify-self: end;
+    display: grid;
+    grid-template-columns: 32px 32px 32px;
+    grid-template-rows: 32px 32px;
+    grid-template-areas: ". forward ."
+                         "left back right";
+  }
+
+  .forward-button {
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+    grid-area: forward;
+    background-image: url('./game-pad-icons/arrow_up-black-36dp.svg');
+    background-position: center;
+    background-color: yellow;
+    cursor: pointer;
+  }
+
+  .left-button {
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+    grid-area: left;
+    background-image: url('./game-pad-icons/arrow_left-black-36dp.svg');
+    background-position: center;
+    background-color: blue;
+    cursor: pointer;
+  }
+
+  .back-button {
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+    grid-area: back;
+    background-image: url('./game-pad-icons/arrow_down-black-36dp.svg');
+    background-position: center;
+    background-color: green;
+    cursor: pointer;
+  }
+
+  .right-button {
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+    grid-area: right;
+    background-image: url('./game-pad-icons/arrow_right-black-36dp.svg');
+    background-position: center;
+    background-color: red;
+    cursor: pointer;
+  }
+
+#frogger {
+    grid-column-start: 5;
+    grid-row-start: 11;
+}
+
+#purple-car {
+    grid-column-start: 9;
+    grid-row-start: 10;
+}
+
+#race-car {
+    grid-column-start: 1;
+    grid-row-start: 9;
+}
+
+#red-car {
+    grid-column-start: 1;
+    grid-row-start: 8;
+}
+
+#white-car {
+    grid-column-start: 9;
+    grid-row-start: 7;
+}
+
+#log-one {
+    grid-column-start: 1;
+    grid-row-start: 4;
+}
+
+#log-two {
+    grid-column-start: 7;
+    grid-row-start: 2;
+}
+
+#turtle-one {
+    display: inline-flex;
+    grid-column-start: 7;
+    grid-row-start: 5;
+}
+
+#turtle-two {
+    display: inline-flex;
+    grid-column-start: 1;
+    grid-row-start: 3;
+}
+
+.win-one {
+    grid-area: winOne;
+    background-color: blue;
+}
+
+.win-two {
+    grid-area: winTwo;
+    background-color: blue;
+}
+
+.win-three {
+    grid-area: winThree;
+    background-color: blue;
+}
+
+.win-four {
+    grid-area: winFour;
+    background-color: blue;
+}
+
+.win-five {
+    grid-area: winFive;
+    background-color: blue;
+}
+
+.block-one {
+    grid-area: blockOne;
+    background-color: chartreuse;
+}
+
+.block-two {
+    grid-area: blockTwo;
+    background-color: chartreuse;
+}
+
+.block-three {
+    grid-area: blockThree;
+    background-color: chartreuse;
+}
+
+.block-four {
+    grid-area: blockFour;
+    background-color: chartreuse;
+}
+
+.start-zone {
+    grid-area: start;
+    background-color: purple;
+}
+
+.safe-zone {
+    grid-area: safe;
+    background-color: purple;
+}
+
+.purple-lane {
+    grid-area: purpleL;
+    background-color: black;
+}
+
+.race-lane {
+    grid-area: race;
+    background-color: black;
+}
+
+.red-lane {
+    grid-area: redL;
+    background-color: black;
+}
+
+.white-lane {
+    grid-area: whiteL;
+    background-color: black;
+}
+
+.turtle-one {
+    grid-area: turtleOne;
+    background-color: blue;
+}
+
+.log-one {
+    grid-area: logOne;
+    background-color: blue;
+}
+
+.turtle-two {
+    grid-area: turtleTwo;
+    background-color: blue;
+}
+
+.log-two {
+    grid-area: logTwo;
+    background-color: blue;
+}
